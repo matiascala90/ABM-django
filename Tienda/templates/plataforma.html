@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="container">
+   <div class="row">
+      <div class="col-md-6 offset-md-3">
+         <h1 class="text-center display-3 py-5">Plataformas</h1>
+         <ul class="list-group">
+            {% for plataform in plataformas %}
+            <li class="list-group-item">
+               <a href="{% url 'plataforma_detalle' plataform.id %}">
+                  <header class="d-flex justify-content-between">
+                     <h1 class="fw-bold text">{{plataform.nombre_plataforma}}</h1>
+                  </header>                 
+               </a> 
+            </li>
+            {% endfor %}
+         </ul>   
+         </div>
+   </div>
+   <br>
+   <div class="text-center">
+      <form action="{% url 'crear_plataforma' %}">
+         <button class="btn btn-primary">
+            Nueva Plataforma
+         </button>
+      </form>   
+   </div>
+</main>
+{% endblock %}
